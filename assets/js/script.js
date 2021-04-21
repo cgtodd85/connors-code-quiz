@@ -1,4 +1,5 @@
 
+populate();
 
 function Quiz(questions) {
     this.score = 0;
@@ -88,6 +89,3 @@ var questions = [
 
 
 var quiz = new Quiz(questions);
-
-
-populate();
