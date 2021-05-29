@@ -1,4 +1,32 @@
 
+var timer
+
+var questionArray = [
+  {
+    question: "What is JSON?",
+    ansA: "Jonathan's Sushi Order Naturally",
+    ansB: "Javascript Object Notation",
+    ansC: "Jordans shot on net"
+  },
+  {
+    question: "who?",
+    ansA: "a",
+    ansB: "b",
+    ansC: "c"
+  },
+  {
+    question: "who?",
+    ansA: "a",
+    ansB: "b",
+    ansC: "c"
+  }
+];
+
+var qOne = questionArray[0].question
+var 
+
+
+/*
 populate();
 
 function Quiz(questions) {
@@ -88,4 +116,4 @@ var questions = [
 ];
 
 
-var quiz = new Quiz(questions);
+var quiz = new Quiz(questions);*/
