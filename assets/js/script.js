@@ -33,7 +33,8 @@ function startTimer() {
   let timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
-    if (secondsLeft === 0) {
+    if (secondsLeft <= 0) {
+      timeEl.textContent = "";
       clearInterval(timerInterval);
       questionCard.innerHTML = `<p>times up! thanks for playing!</p>`;
     }
@@ -59,6 +60,7 @@ function questionOne() {
   buttonA.onclick = function () {
     secondsLeft -= 5;
     answerMessage.textContent = "incorrect!";
+    answerMessage.textContent.fadeout();
   };
 }
 
