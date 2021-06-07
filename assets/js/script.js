@@ -6,7 +6,7 @@ const buttonC = document.querySelector("#btnC");
 const questionEl = document.querySelector("#question");
 const timeEl = document.querySelector("#time-remaining");
 const answerMessage = document.querySelector("#message");
-let secondsLeft = 30;
+let secondsLeft = 60;
 
 var questionArray = [
   {
@@ -16,16 +16,16 @@ var questionArray = [
     ansC: "Jordans shot on net",
   },
   {
-    question: "who?",
-    ansA: "a",
-    ansB: "b",
-    ansC: "c",
+    question: "Question 2?",
+    ansA: "not a",
+    ansB: "not b",
+    ansC: "answer c",
   },
   {
-    question: "what?",
-    ansA: "a",
-    ansB: "b",
-    ansC: "c",
+    question: "Question 3",
+    ansA: "answer a",
+    ansB: "not b",
+    ansC: "not c",
   },
 ];
 
@@ -102,7 +102,7 @@ function questionTwo() {
     setTimeout(function () {
       answerMessage.textContent = "";
     }, 1000);
-    questionTwo();
+    questionThree();
   };
   buttonB.onclick = function () {
     secondsLeft -= 2;
@@ -119,8 +119,38 @@ function questionThree() {
   buttonA.textContent = questionArray[2].ansA;
   buttonB.textContent = questionArray[2].ansB;
   buttonC.textContent = questionArray[2].ansC;
+  buttonB.onclick = function () {
+    secondsLeft -= 2;
+    answerMessage.style.color = "red";
+    answerMessage.textContent = "incorrect!";
+    setTimeout(function () {
+      answerMessage.textContent = "";
+    }, 2000);
+  };
+  buttonA.onclick = function () {
+    answerMessage.style.color = "green";
+    answerMessage.textContent = "correct!";
+    setTimeout(function () {
+      answerMessage.textContent = "";
+    }, 1000);
+    showResults();
+  };
+  buttonC.onclick = function () {
+    secondsLeft -= 2;
+    answerMessage.style.color = "red";
+    answerMessage.textContent = "incorrect!";
+    setTimeout(function () {
+      answerMessage.textContent = "";
+    }, 2000);
+  };
 }
 
+function showResults() {
+  secondsLeft = 0;
+  document.querySelector("#quiz").innerHTML = `
+  <img src="https://static.coindesk.com/wp-content/uploads/2021/04/dogecoin.jpg">
+  `;
+}
 // function runQuiz() {
 //   let i = 0;
 //   questionCard.innerHTML = `
