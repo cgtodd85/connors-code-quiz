@@ -5,7 +5,8 @@ const buttonB = document.querySelector("#btnB");
 const buttonC = document.querySelector("#btnC");
 const questionEl = document.querySelector("#question");
 const timeEl = document.querySelector("#time-remaining");
-let secondsLeft = 10;
+const answerMessage = document.querySelector("#message");
+let secondsLeft = 30;
 
 var questionArray = [
   {
@@ -55,6 +56,10 @@ function questionOne() {
   buttonA.textContent = questionArray[0].ansA;
   buttonB.textContent = questionArray[0].ansB;
   buttonC.textContent = questionArray[0].ansC;
+  buttonA.onclick = function () {
+    secondsLeft -= 5;
+    answerMessage.textContent = "incorrect!";
+  };
 }
 
 function questionTwo() {
