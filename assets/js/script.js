@@ -1,30 +1,34 @@
-
-var timer
+var timer;
+const startButton = document.querySelector("#start-button");
+const questionCard = document.querySelector(".question-card");
 
 var questionArray = [
   {
     question: "What is JSON?",
     ansA: "Jonathan's Sushi Order Naturally",
     ansB: "Javascript Object Notation",
-    ansC: "Jordans shot on net"
+    ansC: "Jordans shot on net",
   },
   {
     question: "who?",
     ansA: "a",
     ansB: "b",
-    ansC: "c"
+    ansC: "c",
   },
   {
     question: "who?",
     ansA: "a",
     ansB: "b",
-    ansC: "c"
-  }
+    ansC: "c",
+  },
 ];
 
-var qOne = questionArray[0].question
-var 
+var question1 = questionArray[0].question;
 
+startButton.addEventListener("click", function () {
+  console.log("button pressed!!");
+  questionCard.innerHTML = `<p>test text after button press</p>`;
+});
 
 /*
 populate();
