@@ -6,7 +6,7 @@ var questionArray = [
   {
     question: "What is JSON?",
     ansA: "Jonathan's Sushi Order Naturally",
-    ansB: "Javascript Object Notation",
+    ansCorrect: "Javascript Object Notation",
     ansC: "Jordans shot on net",
   },
   {
@@ -26,9 +26,31 @@ var questionArray = [
 var question1 = questionArray[0].question;
 
 startButton.addEventListener("click", function () {
-  console.log("button pressed!!");
-  questionCard.innerHTML = `<p>test text after button press</p>`;
+  startButton.style.display = "none";
+  questionCard.style.visibility = "visible";
 });
+
+// function runQuiz() {
+//   let i = 0;
+//   questionCard.innerHTML = `
+//             <p>Question ${i + 1}: ${questionArray[i].question}</p>
+//             <div class="buttons">
+//                 <button id="btn1"><span id="choiceA">a) ${
+//                   questionArray[i].ansA
+//                 }</span></button>
+//                 <button id="btn2"><span id="choiceB">b) ${
+//                   questionArray[i].ansCorrect
+//                 }</span></button>
+//                 <button id="btn3"><span id="choiceC">c) ${
+//                   questionArray[i].ansC
+//                 }</span></button>
+//             </div>
+//             `;
+//   let correctAns = document.getElementById("btn2");
+//   correctAns.onclick = function () {
+//     questionCard.innerHTML = "<p>correct!</p>";
+//   };
+// }
 
 /*
 populate();
