@@ -58,9 +58,28 @@ function questionOne() {
   buttonB.textContent = questionArray[0].ansB;
   buttonC.textContent = questionArray[0].ansC;
   buttonA.onclick = function () {
-    secondsLeft -= 5;
+    secondsLeft -= 2;
+    answerMessage.style.color = "red";
     answerMessage.textContent = "incorrect!";
-    answerMessage.textContent.fadeout();
+    setTimeout(function () {
+      answerMessage.textContent = "";
+    }, 2000);
+  };
+  buttonB.onclick = function () {
+    answerMessage.style.color = "green";
+    answerMessage.textContent = "correct!";
+    setTimeout(function () {
+      answerMessage.textContent = "";
+    }, 1000);
+    questionTwo();
+  };
+  buttonC.onclick = function () {
+    secondsLeft -= 2;
+    answerMessage.style.color = "red";
+    answerMessage.textContent = "incorrect!";
+    setTimeout(function () {
+      answerMessage.textContent = "";
+    }, 2000);
   };
 }
 
@@ -69,6 +88,30 @@ function questionTwo() {
   buttonA.textContent = questionArray[1].ansA;
   buttonB.textContent = questionArray[1].ansB;
   buttonC.textContent = questionArray[1].ansC;
+  buttonA.onclick = function () {
+    secondsLeft -= 2;
+    answerMessage.style.color = "red";
+    answerMessage.textContent = "incorrect!";
+    setTimeout(function () {
+      answerMessage.textContent = "";
+    }, 2000);
+  };
+  buttonC.onclick = function () {
+    answerMessage.style.color = "green";
+    answerMessage.textContent = "correct!";
+    setTimeout(function () {
+      answerMessage.textContent = "";
+    }, 1000);
+    questionTwo();
+  };
+  buttonB.onclick = function () {
+    secondsLeft -= 2;
+    answerMessage.style.color = "red";
+    answerMessage.textContent = "incorrect!";
+    setTimeout(function () {
+      answerMessage.textContent = "";
+    }, 2000);
+  };
 }
 
 function questionThree() {
