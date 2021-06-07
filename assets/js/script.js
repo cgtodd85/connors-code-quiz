@@ -1,10 +1,11 @@
-var timer;
 const startButton = document.querySelector("#start-button");
 const questionCard = document.querySelector(".question-card");
 const buttonA = document.querySelector("#btnA");
 const buttonB = document.querySelector("#btnB");
 const buttonC = document.querySelector("#btnC");
 const questionEl = document.querySelector("#question");
+const timeEl = document.querySelector("#time-remaining");
+let secondsLeft = 10;
 
 var questionArray = [
   {
@@ -27,9 +28,21 @@ var questionArray = [
   },
 ];
 
+function startTimer() {
+  let timerInterval = setInterval(function () {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft;
+    if (secondsLeft === 0) {
+      clearInterval(timerInterval);
+      questionCard.innerHTML = `<p>times up! thanks for playing!</p>`;
+    }
+  }, 1000);
+}
+
 startButton.addEventListener("click", function () {
   startButton.style.display = "none";
   questionCard.style.visibility = "visible";
+  startTimer();
   runTimedQuiz();
 });
 
@@ -42,6 +55,20 @@ function questionOne() {
   buttonA.textContent = questionArray[0].ansA;
   buttonB.textContent = questionArray[0].ansB;
   buttonC.textContent = questionArray[0].ansC;
+}
+
+function questionTwo() {
+  questionEl.textContent = questionArray[1].question;
+  buttonA.textContent = questionArray[1].ansA;
+  buttonB.textContent = questionArray[1].ansB;
+  buttonC.textContent = questionArray[1].ansC;
+}
+
+function questionThree() {
+  questionEl.textContent = questionArray[2].question;
+  buttonA.textContent = questionArray[2].ansA;
+  buttonB.textContent = questionArray[2].ansB;
+  buttonC.textContent = questionArray[2].ansC;
 }
 
 // function runQuiz() {
