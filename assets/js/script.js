@@ -1,12 +1,16 @@
 var timer;
 const startButton = document.querySelector("#start-button");
 const questionCard = document.querySelector(".question-card");
+const buttonA = document.querySelector("#btnA");
+const buttonB = document.querySelector("#btnB");
+const buttonC = document.querySelector("#btnC");
+const questionEl = document.querySelector("#question");
 
 var questionArray = [
   {
     question: "What is JSON?",
     ansA: "Jonathan's Sushi Order Naturally",
-    ansCorrect: "Javascript Object Notation",
+    ansB: "Javascript Object Notation",
     ansC: "Jordans shot on net",
   },
   {
@@ -16,19 +20,29 @@ var questionArray = [
     ansC: "c",
   },
   {
-    question: "who?",
+    question: "what?",
     ansA: "a",
     ansB: "b",
     ansC: "c",
   },
 ];
 
-var question1 = questionArray[0].question;
-
 startButton.addEventListener("click", function () {
   startButton.style.display = "none";
   questionCard.style.visibility = "visible";
+  runTimedQuiz();
 });
+
+function runTimedQuiz() {
+  questionOne();
+}
+
+function questionOne() {
+  questionEl.textContent = questionArray[0].question;
+  buttonA.textContent = questionArray[0].ansA;
+  buttonB.textContent = questionArray[0].ansB;
+  buttonC.textContent = questionArray[0].ansC;
+}
 
 // function runQuiz() {
 //   let i = 0;
