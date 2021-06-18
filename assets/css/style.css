@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(135, 222, 164);
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -9,9 +13,10 @@ header {
 }
 
 #quiz {
-  margin: 60px auto;
+  margin: 20px 20px auto;
   display: flex;
   flex-direction: column;
+  background-color: rgb(135, 222, 164);
 }
 
 .buttons {
