@@ -6,7 +6,7 @@ const buttonC = document.querySelector("#btnC");
 const questionEl = document.querySelector("#question");
 const timeEl = document.querySelector("#time-remaining");
 const answerMessage = document.querySelector("#message");
-let secondsLeft = 60;
+let secondsLeft = 400;
 
 var questionArray = [
   {
