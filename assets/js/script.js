@@ -12,21 +12,37 @@ let userScore = 0;
 var questionArray = [
   {
     question: "What is JSON?",
-    ansA: "Jonathan's Sushi Order Naturally",
-    ansB: "Javascript Object Notation",
-    ansC: "Jordans shot on net",
+    answers: [
+      "Jonathan's Sushi Order Naturally",
+      "Javascript Object Notation",
+      "Jordans shot on net",
+    ],
+    ansValue: 1,
   },
   {
-    question: "Question 2?",
-    ansA: "not a",
-    ansB: "not b",
-    ansC: "answer c",
+    question: "What are var, const, and let?",
+    answers: ["Ways to name a variable", "Regular Expressions", "Operators"],
+    ansValue: 0,
   },
   {
-    question: "Question 3",
-    ansA: "answer a",
-    ansB: "not b",
-    ansC: "not c",
+    question: "What is the DOM?",
+    answers: [
+      "Division Or Multiplication",
+      "Digest Oats More",
+      "Document Object Model",
+    ],
+    ansValue: 2,
+  },
+  {
+    question: "Which of the following is a javascript runtime environment?",
+    answers: ["Node.js", "MySQL", "React"],
+    ansValue: 0,
+  },
+  {
+    question:
+      "Which of the following is the most popular design pattern for building web servers?",
+    answers: ["NoSQL", "ORM", "Model View Controller (MVC)"],
+    ansValue: 2,
   },
 ];
 
