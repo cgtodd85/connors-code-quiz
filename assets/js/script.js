@@ -6,8 +6,12 @@ const buttonC = document.querySelector("#btnC");
 const questionEl = document.querySelector("#question");
 const timeEl = document.querySelector("#time-remaining");
 const answerMessage = document.querySelector("#message");
+const userScoreEl = document.querySelector(".user-score");
+const quizContainer = document.querySelector("#quiz");
+
 let secondsLeft = 400;
 let userScore = 0;
+let currentQuestion = 0;
 
 var questionArray = [
   {
@@ -53,7 +57,7 @@ function startTimer() {
     if (secondsLeft <= 0) {
       timeEl.textContent = "";
       clearInterval(timerInterval);
-      questionCard.innerHTML = `<p>times up! thanks for playing!</p>`;
+      endPrompt();
     }
   }, 1000);
 }
@@ -61,13 +65,32 @@ function startTimer() {
 startButton.addEventListener("click", function () {
   startButton.style.display = "none";
   questionCard.style.visibility = "visible";
+  userScoreEl.textContent = "User score: " + userScore;
   startTimer();
-  runTimedQuiz();
+  populateQuestion(currentQuestion);
   //display score
 });
 
-function runTimedQuiz() {
-  populateQuestion(0);
+function endPrompt() {
+  questionCard.style.visibility = "hidden";
+  quizContainer.innerHTML = `
+  <h2>Thank you for playing!</h2>
+  <h3>Final score is ${userScore}</h3>
+  <p> Please enter your initials </p>
+  `;
+  // function so save a list with user inits and sscore in a table
+  // show user input for name
+  // display highscore card
+  // button for main page or refresh?
+}
+
+function nextQuestion() {
+  if (currentQuestion > 4) {
+    secondsLeft = 0;
+  } else {
+    userScoreEl.textContent = "User score: " + userScore;
+    populateQuestion(currentQuestion);
+  }
 }
 
 function populateQuestion(i) {
@@ -76,13 +99,15 @@ function populateQuestion(i) {
   buttonB.textContent = questionArray[i].answers[1];
   buttonC.textContent = questionArray[i].answers[2];
   buttonA.onclick = function () {
-    if (questionArray[i].ansValue === buttonA.value) {
+    if (questionArray[i].ansValue == buttonA.value) {
       userScore += 20;
       answerMessage.style.color = "green";
       answerMessage.textContent = "correct!";
       setTimeout(function () {
         answerMessage.textContent = "";
       }, 1000);
+      currentQuestion++;
+      nextQuestion();
     } else {
       secondsLeft -= 2;
       answerMessage.style.color = "red";
@@ -90,10 +115,58 @@ function populateQuestion(i) {
       setTimeout(function () {
         answerMessage.textContent = "";
       }, 2000);
-      return;
+      currentQuestion++;
+      nextQuestion();
+    }
+  };
+  buttonB.onclick = function () {
+    if (questionArray[i].ansValue == buttonB.value) {
+      userScore += 20;
+      answerMessage.style.color = "green";
+      answerMessage.textContent = "correct!";
+      setTimeout(function () {
+        answerMessage.textContent = "";
+      }, 1000);
+      currentQuestion++;
+      nextQuestion();
+    } else {
+      secondsLeft -= 2;
+      answerMessage.style.color = "red";
+      answerMessage.textContent = "incorrect!";
+      setTimeout(function () {
+        answerMessage.textContent = "";
+      }, 2000);
+      currentQuestion++;
+      nextQuestion();
+    }
+  };
+  buttonC.onclick = function () {
+    if (questionArray[i].ansValue == buttonC.value) {
+      userScore += 20;
+      answerMessage.style.color = "green";
+      answerMessage.textContent = "correct!";
+      setTimeout(function () {
+        answerMessage.textContent = "";
+      }, 1000);
+      currentQuestion++;
+      nextQuestion();
+    } else {
+      secondsLeft -= 2;
+      answerMessage.style.color = "red";
+      answerMessage.textContent = "incorrect!";
+      setTimeout(function () {
+        answerMessage.textContent = "";
+      }, 2000);
+      currentQuestion++;
+      nextQuestion();
     }
   };
 }
+
+// function selectAnswer(e) {
+//   let selectedButton = e.target
+//   if (selectedButton.value )
+// }
 
 function questionOne() {
   questionEl.textContent = questionArray[0].question;
