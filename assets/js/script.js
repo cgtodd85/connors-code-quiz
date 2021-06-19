@@ -63,10 +63,36 @@ startButton.addEventListener("click", function () {
   questionCard.style.visibility = "visible";
   startTimer();
   runTimedQuiz();
+  //display score
 });
 
 function runTimedQuiz() {
-  questionOne();
+  populateQuestion(0);
+}
+
+function populateQuestion(i) {
+  questionEl.textContent = questionArray[i].question;
+  buttonA.textContent = questionArray[i].answers[0];
+  buttonB.textContent = questionArray[i].answers[1];
+  buttonC.textContent = questionArray[i].answers[2];
+  buttonA.onclick = function () {
+    if (questionArray[i].ansValue === buttonA.value) {
+      userScore += 20;
+      answerMessage.style.color = "green";
+      answerMessage.textContent = "correct!";
+      setTimeout(function () {
+        answerMessage.textContent = "";
+      }, 1000);
+    } else {
+      secondsLeft -= 2;
+      answerMessage.style.color = "red";
+      answerMessage.textContent = "incorrect!";
+      setTimeout(function () {
+        answerMessage.textContent = "";
+      }, 2000);
+      return;
+    }
+  };
 }
 
 function questionOne() {
