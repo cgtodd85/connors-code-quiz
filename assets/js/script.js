@@ -9,7 +9,7 @@ const answerMessage = document.querySelector("#message");
 const userScoreEl = document.querySelector(".user-score");
 const quizContainer = document.querySelector("#quiz");
 
-let secondsLeft = 400;
+let secondsLeft = 20;
 let userScore = 0;
 let currentQuestion = 0;
 
