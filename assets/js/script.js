@@ -78,6 +78,7 @@ function endPrompt() {
   <h3>Final score is ${userScore}</h3>
   <p> Please enter your initials </p>
   `;
+  let usrInitials = window.prompt("High score! Please enter your intials.");
   // function so save a list with user inits and sscore in a table
   // show user input for name
   // display highscore card
