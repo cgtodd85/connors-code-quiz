@@ -73,12 +73,12 @@ startButton.addEventListener("click", function () {
 
 function endPrompt() {
   questionCard.style.visibility = "hidden";
+  let userName = window.prompt("High score! Please enter your name:");
   quizContainer.innerHTML = `
-  <h2>Thank you for playing!</h2>
+  <h2>Thank you for playing, ${userName}!</h2>
   <h3>Final score is ${userScore}</h3>
-  <p> Please enter your initials </p>
+  <button onclick="location.reload()">Click to reload</bitton>
   `;
-  let usrInitials = window.prompt("High score! Please enter your intials.");
 
   // function so save a list with user inits and sscore in a table
   // show user input for name
