@@ -94,6 +94,28 @@ function nextQuestion() {
   }
 }
 
+function wrongAnswer() {
+  secondsLeft -= 2;
+  answerMessage.style.color = "red";
+  answerMessage.textContent = "incorrect!";
+  setTimeout(function () {
+    answerMessage.textContent = "";
+  }, 2000);
+  currentQuestion++;
+  nextQuestion();
+}
+
+function correctAnswer() {
+  userScore += 20;
+  answerMessage.style.color = "green";
+  answerMessage.textContent = "correct!";
+  setTimeout(function () {
+    answerMessage.textContent = "";
+  }, 1000);
+  currentQuestion++;
+  nextQuestion();
+}
+
 function populateQuestion(i) {
   questionEl.textContent = questionArray[i].question;
   buttonA.textContent = questionArray[i].answers[0];
@@ -101,23 +123,9 @@ function populateQuestion(i) {
   buttonC.textContent = questionArray[i].answers[2];
   buttonA.onclick = function () {
     if (questionArray[i].ansValue == buttonA.value) {
-      userScore += 20;
-      answerMessage.style.color = "green";
-      answerMessage.textContent = "correct!";
-      setTimeout(function () {
-        answerMessage.textContent = "";
-      }, 1000);
-      currentQuestion++;
-      nextQuestion();
+      correctAnswer();
     } else {
-      secondsLeft -= 2;
-      answerMessage.style.color = "red";
-      answerMessage.textContent = "incorrect!";
-      setTimeout(function () {
-        answerMessage.textContent = "";
-      }, 2000);
-      currentQuestion++;
-      nextQuestion();
+      wrongAnswer();
     }
   };
   buttonB.onclick = function () {
