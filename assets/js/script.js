@@ -79,6 +79,7 @@ function endPrompt() {
   <p> Please enter your initials </p>
   `;
   let usrInitials = window.prompt("High score! Please enter your intials.");
+
   // function so save a list with user inits and sscore in a table
   // show user input for name
   // display highscore card
@@ -130,44 +131,16 @@ function populateQuestion(i) {
   };
   buttonB.onclick = function () {
     if (questionArray[i].ansValue == buttonB.value) {
-      userScore += 20;
-      answerMessage.style.color = "green";
-      answerMessage.textContent = "correct!";
-      setTimeout(function () {
-        answerMessage.textContent = "";
-      }, 1000);
-      currentQuestion++;
-      nextQuestion();
+      correctAnswer();
     } else {
-      secondsLeft -= 2;
-      answerMessage.style.color = "red";
-      answerMessage.textContent = "incorrect!";
-      setTimeout(function () {
-        answerMessage.textContent = "";
-      }, 2000);
-      currentQuestion++;
-      nextQuestion();
+      wrongAnswer();
     }
   };
   buttonC.onclick = function () {
     if (questionArray[i].ansValue == buttonC.value) {
-      userScore += 20;
-      answerMessage.style.color = "green";
-      answerMessage.textContent = "correct!";
-      setTimeout(function () {
-        answerMessage.textContent = "";
-      }, 1000);
-      currentQuestion++;
-      nextQuestion();
+      correctAnswer();
     } else {
-      secondsLeft -= 2;
-      answerMessage.style.color = "red";
-      answerMessage.textContent = "incorrect!";
-      setTimeout(function () {
-        answerMessage.textContent = "";
-      }, 2000);
-      currentQuestion++;
-      nextQuestion();
+      wrongAnswer();
     }
   };
 }
