@@ -77,7 +77,7 @@ function endPrompt() {
   quizContainer.innerHTML = `
   <h2>Thank you for playing, ${userName}!</h2>
   <h3>Final score is ${userScore}</h3>
-  <button onclick="location.reload()">Click to reload</bitton>
+  <button onclick="location.reload()">Click to reload</button>
   `;
 
   // function so save a list with user inits and sscore in a table
@@ -143,11 +143,4 @@ function populateQuestion(i) {
       wrongAnswer();
     }
   };
-}
-
-function showResults() {
-  secondsLeft = 0;
-  document.querySelector("#quiz").innerHTML = `
-  <img src="https://static.coindesk.com/wp-content/uploads/2021/04/dogecoin.jpg">
-  `;
 }
